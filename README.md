@@ -1,9 +1,8 @@
-# web-dev-template
 # Istiaque Shanjib WebDev
+I'm a senior at Northeastern University, getting my Bachelor's in Computer Engineering. I currently work part-time at Carbonite Inc.
 
-1. git clone https://github.com/jannunzi/web-dev-template.git
-1. cd web-dev-template
-1. npm install
-1. mongod
-1. node server.js
-1. browse to localhost:3000
+This repo is for my Web Development class, where we are learning to create web applications.
+
+--insert link to Heroku
+--insert link to assignment
+--insert link to project
