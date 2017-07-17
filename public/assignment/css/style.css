@@ -2,10 +2,10 @@ input {
     margin-bottom: 5px;
 }
 
-.ias-navbar {
-    <!--float:left;-->
-}
-
 body {
     padding-top: 50px;
+}
+
+.ias-glyphicon {
+    color:white;
 }
