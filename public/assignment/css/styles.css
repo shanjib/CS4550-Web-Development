@@ -1,0 +1,55 @@
+:root {
+    --header-height: 60px;
+    --footer-height: 40px;
+}
+
+input, textarea, .btn {
+    margin-bottom: 5px;
+}
+
+body {
+    padding-top: var(--header-height);
+    height: 100%;
+}
+
+html {
+    height: 100%;
+}
+
+.ias-glyphicon {
+    color:white;
+}
+
+.ias-inverse {
+    background-color: #222;
+    border-color: #080808;
+    color: white;
+}
+
+.ias-footer {
+    width: 100%;
+    text-align: right;
+    position: absolute;
+    height: var(--footer-height);
+    bottom: 0;
+    z-index: 999;
+}
+
+.ias-split-view-left {
+    position: absolute;
+    top: var(--header-height);
+    bottom: var(--footer-height);
+    z-index: 1;
+    overflow-y: scroll;
+}
+
+@media (min-width: 1200px) {
+    .col-lg-9.ias-split-view-right {
+        width: 75%;
+        position: absolute;
+        right: 0px;
+        overflow-y: scroll;
+        top: var(--header-height);
+        bottom: var(--footer-height)
+    }
+}
