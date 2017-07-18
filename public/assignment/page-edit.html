@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+
+    <title>Edit Page</title>
+
+    <link href="../vendor/css/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/styles.css" rel="stylesheet"/>
+
+</head>
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">Assignment</a>
+            </div>
+
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="website-list.html">Websites</a></li>
+                    <li class="active"><a href="#">Pages</a> </li>
+                    <li><a href="login.html">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container container-fluid">
+
+        <label for="name">Name</label>
+        <input name="name"
+               value="Page Name"
+               class="form-control"
+               id="name"/>
+
+        <label for="title">Title</label>
+        <input name="title"
+               value="Page Title"
+               class="form-control"
+               id="title"/>
+
+        <a class="btn btn-default btn-primary btn-block"
+           href="page-list.html"
+           role="button">Confirm</a>
+
+        <a class="btn btn-default btn-danger btn-block"
+           href="page-list.html"
+           role="button">Cancel</a>
+
+    </div>
+
+    <footer class="footer panel-footer ias-footer">
+        <div class="container container-fluid">
+            <ul class="list-unstyled">
+                <li><a href="profile.html"><span class="glyphicon glyphicon-user"></span></a></li>
+            </ul>
+        </div>
+    </footer>
+
+</body>
+</html>
