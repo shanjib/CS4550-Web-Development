@@ -16,6 +16,14 @@ html {
     height: 100%;
 }
 
+a {
+    color:white;
+}
+
+a:hover {
+    color:grey;
+}
+
 .ias-glyphicon {
     color:white;
 }
@@ -33,6 +41,11 @@ html {
     height: var(--footer-height);
     bottom: 0;
     z-index: 999;
+}
+
+.ias-view {
+    overflow-y: scroll;
+    padding-bottom: var(--footer-height);
 }
 
 .ias-split-view-left {
