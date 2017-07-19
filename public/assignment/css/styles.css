@@ -9,6 +9,7 @@ input, textarea, .btn {
 
 body {
     padding-top: var(--header-height);
+    margin-bottom: var(--footer-height);
     height: 100%;
 }
 
@@ -37,7 +38,7 @@ a:hover {
 .ias-footer {
     width: 100%;
     text-align: right;
-    position: relative;
+    position: absolute;
     height: var(--footer-height);
     bottom: 0;
     z-index: 999;
