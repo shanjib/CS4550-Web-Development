@@ -37,7 +37,7 @@ a:hover {
 .ias-footer {
     width: 100%;
     text-align: right;
-    position: absolute;
+    position: relative;
     height: var(--footer-height);
     bottom: 0;
     z-index: 999;
