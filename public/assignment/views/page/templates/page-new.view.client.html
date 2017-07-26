@@ -1,31 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-
-    <title>New Page</title>
-
-    <link href="../vendor/css/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="css/styles.css" rel="stylesheet"/>
-
-</head>
-<body>
-
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container container-fluid">
         <div>
             <div class="navbar-brand navbar-left" style="color: white">
-                <a href="page-list.html">
-                    <span class="glyphicon glyphicon-chevron-left">
+                <a>
+                    <span ng-click="model.goBack()" class="glyphicon glyphicon-chevron-left">
                     </span>
                 </a>
                 Edit Page
             </div>
             <div class="navbar-brand navbar-right pull-right">
-                <a href="page-list.html">
-                    <span class="glyphicon glyphicon-ok ias-glyphicon">
+                <a>
+                    <span ng-click="model.createPage(page)" class="glyphicon glyphicon-ok ias-glyphicon">
                     </span>
                 </a>
             </div>
@@ -38,21 +23,23 @@
     <label for="name">Name</label>
     <input name="name"
            placeholder="Page Name"
+           ng-model="page.name"
            class="form-control"
            id="name"/>
 
-    <label for="title">Title</label>
+    <label for="title">Description</label>
     <input name="title"
-           placeholder="Page Title"
+           placeholder="Page Description"
+           ng-model="page.description"
            class="form-control"
            id="title"/>
 
     <a class="btn btn-default btn-primary btn-block"
-       href="page-list.html"
+       ng-click="model.createPage(page)"
        role="button">Confirm</a>
 
     <a class="btn btn-default btn-danger btn-block"
-       href="page-list.html"
+       ng-click="model.goBack()"
        role="button">Cancel</a>
 
 </div>
@@ -60,10 +47,7 @@
 <footer class="footer panel-footer ias-footer">
     <div class="container container-fluid">
         <ul class="list-unstyled">
-            <li><a href="user-profile.html"><span class="glyphicon glyphicon-user"></span></a></li>
+            <li><a href="#!/profile/{{model.userId}}"><span class="glyphicon glyphicon-user"></span></a></li>
         </ul>
     </div>
 </footer>
-
-</body>
-</html>

@@ -1,0 +1,48 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container container-fluid">
+        <div>
+            <div class="navbar-brand navbar-left" style="color: white">
+                <a>
+                    <span ng-click="model.goBack()" class="glyphicon glyphicon-chevron-left">
+                    </span>
+                </a>
+                Widgets
+            </div>
+            <div class="navbar-brand navbar-right pull-right">
+                <a>
+                    <span ng-click="model.goToNew()"
+                          class="glyphicon glyphicon-plus ias-glyphicon">
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container container-fluid">
+
+    <div ng-repeat="widget in model.widgets">
+        <div ng-switch="widget.widgetType">
+            <div ng-switch-when="HEADING">
+                <ng-include src="'/assignment/views/widget/templates/widget-heading.view.client.html'">
+            </div>
+            <div ng-switch-when="IMAGE">
+                <ng-include src="'/assignment/views/widget/templates/widget-image.view.client.html'">
+            </div>
+            <div ng-switch-when="YOUTUBE">
+                <ng-include src="'/assignment/views/widget/templates/widget-youtube.view.client.html'">
+            </div>
+            <div ng-switch-when="HTML">
+                <ng-include src="'/assignment/views/widget/templates/widget-html.view.client.html'">
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer panel-footer ias-footer">
+    <div class="container container-fluid">
+        <ul class="list-unstyled">
+            <li><a href="#!/profile/{{model.userId}}"><span class="glyphicon glyphicon-user"></span></a></li>
+        </ul>
+    </div>
+</footer>
