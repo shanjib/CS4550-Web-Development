@@ -38,29 +38,35 @@
         function goToHeading()
         {
             var widget = { "widgetType": "HEADING", "text": "" };
-            widget = widgetService.createWidget(model.pageId, widget);
-            goToEdit(widget._id)
+            createWidget(widget);
         }
 
         function goToImage()
         {
             var widget = { "widgetType": "IMAGE", "url": "", "width": "100%" };
-            widget = widgetService.createWidget(model.pageId, widget);
-            goToEdit(widget._id)
+            createWidget(widget);
         }
 
         function goToYoutube()
         {
             var widget = { "widgetType": "YOUTUBE", "url": "", "width": "100%" };
-            widget = widgetService.createWidget(model.pageId, widget);
-            goToEdit(widget._id)
+            createWidget(widget);
         }
 
         function goToHTML()
         {
             var widget = { "widgetType": "HTML", "text": "" };
-            widget = widgetService.createWidget(model.pageId, widget);
-            goToEdit(widget._id)
+            createWidget(widget);
+        }
+
+        function createWidget(widget)
+        {
+            var promise = widgetService.createWidget(model.pageId, widget);
+            promise
+                .then(function (response) {
+                    widget = response.data;
+                    goToEdit(widget._id);
+                });
         }
     }
 })();

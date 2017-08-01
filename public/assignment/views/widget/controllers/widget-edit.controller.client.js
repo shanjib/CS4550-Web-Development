@@ -19,25 +19,35 @@
 
         function init()
         {
-            model.widget = widgetService.findWidgetById(model.widgetId);
+            var promise = widgetService.findWidgetById(model.widgetId);
+            promise
+                .then(function (response) {
+                    model.widget = response.data;
+                });
         }
         init();
 
-        function goBack()
-        {
-            $location.url("/profile/" + model.userId + "/website/" + model.websiteId + "/page/" + model.pageId + "/widget");
-        }
-
         function updateWidget(widget)
         {
-            widgetService.updateWidget(model.widgetId, widget);
-            goBack();
+            var promise = widgetService.updateWidget(model.widgetId, widget);
+            promise
+                .then(function (response) {
+                    goBack();
+                });
         }
 
         function deleteWidget()
         {
-            widgetService.deleteWidget(model.widgetId);
-            goBack();
+            var promise = widgetService.deleteWidget(model.widgetId);
+            promise
+                .then(function (response) {
+                    goBack();
+                });
+        }
+
+        function goBack()
+        {
+            $location.url("/profile/" + model.userId + "/website/" + model.websiteId + "/page/" + model.pageId + "/widget");
         }
     }
 })();

@@ -20,7 +20,11 @@
 
         function init()
         {
-            model.widgets = widgetService.findWidgetsByPageId(model.pageId);
+            var promise = widgetService.findWidgetsByPageId(model.pageId);
+            promise
+                .then(function (response) {
+                    model.widgets = response.data;
+                });
         }
         init();
 
