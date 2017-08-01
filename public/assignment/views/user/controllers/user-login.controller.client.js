@@ -21,15 +21,20 @@
             {
                 model.errorMessage = "Username or Password given was not accurate"
             }
-            user = userService.findUserByCredentials(user.username, user.password);
-            if (user === null)
-            {
-                model.errorMessage = "Username or Password given was not accurate"
-            }
-            else
-            {
-                $location.url("profile/" + user._id);
-            }
+            var promise = userService.findUserByCredentials(user.username, user.password);
+            promise
+                .then(function (response)
+                {
+                    user = response.data;
+                    if (user === "0")
+                    {
+                        model.errorMessage = "Username or Password given was not accurate"
+                    }
+                    else
+                    {
+                        $location.url("profile/" + user._id);
+                    }
+                });
         }
     }
 })();

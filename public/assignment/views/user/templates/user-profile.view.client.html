@@ -4,12 +4,6 @@
             <div class="navbar-brand navbar-left" style="color: white">
                 Profile
             </div>
-            <div class="navbar-brand navbar-right pull-right">
-                <a href="#">
-                    <span class="glyphicon glyphicon-ok ias-glyphicon">
-                    </span>
-                </a>
-            </div>
         </div>
     </div>
 </nav>
@@ -42,8 +36,16 @@
        href="#!/profile/{{model.user._id}}/website"
        role="button">Websites</a>
 
+    <a class="btn btn-default btn-block btn-primary"
+       ng-click="model.updateUser(model.user)"
+       role="button">Update Profile</a>
+
     <a class="btn btn-default btn-block btn-danger"
-       href="#!/login"
+       ng-click="model.deleteUser()"
+       role="button">Delete Profile</a>
+
+    <a class="btn btn-default btn-block btn-danger"
+       ng-click="model.goBack()"
        role="button">Logout</a>
 
 </div>
