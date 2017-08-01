@@ -4,7 +4,7 @@
         .module("WamApp")
         .factory("widgetService", widgetService);
 
-    function widgetService()
+    function widgetService($http)
     {
         var widgets =
             [

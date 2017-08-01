@@ -17,14 +17,21 @@
 
         function init()
         {
-            model.websites = websiteService.findWebsitesByUser(model.userId);
+            var promise = websiteService.findWebsitesByUser(model.userId);
+            promise
+                .then(function (response) {
+                    model.websites = response.data;
+                });
         }
         init();
 
         function createWebsite(website)
         {
-            websiteService.createWebsite(model.userId, website);
-            goBack();
+            var promise = websiteService.createWebsite(model.userId, website);
+            promise
+                .then(function (response) {
+                    goBack();
+                });
         }
 
         function goBack()

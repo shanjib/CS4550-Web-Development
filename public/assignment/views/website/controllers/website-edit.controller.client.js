@@ -19,8 +19,16 @@
 
         function init()
         {
-            model.websites = websiteService.findWebsitesByUser(model.userId);
-            model.website = websiteService.findWebsiteById(model.websiteId);
+            var promise = websiteService.findWebsitesByUser(model.userId);
+            promise
+                .then(function (response) {
+                    model.websites = response.data;
+                });
+            var promise2 = websiteService.findWebsiteById(model.websiteId);
+            promise2
+                .then(function (response) {
+                    model.website = response.data;
+                });
         }
         init();
 
@@ -31,14 +39,20 @@
 
         function deleteWebsite()
         {
-            websiteService.deleteWebsite(model.websiteId);
-            goBack();
+            var promise = websiteService.deleteWebsite(model.websiteId);
+            promise
+                .then(function (response) {
+                    goBack();
+                });
         }
 
         function updateWebsite(website)
         {
-            websiteService.updateWebsite(model.websiteId, website);
-            goBack();
+            var promise = websiteService.updateWebsite(model.websiteId, website);
+            promise
+                .then(function (response) {
+                    goBack();
+                });
         }
 
         function goToNew()

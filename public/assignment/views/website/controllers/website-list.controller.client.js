@@ -17,7 +17,11 @@
 
         function init()
         {
-            model.websites = websiteService.findWebsitesByUser(model.userId);
+            var promise = websiteService.findWebsitesByUser(model.userId);
+            promise
+                .then(function (response) {
+                    model.websites = response.data;
+                });
         }
         init();
 

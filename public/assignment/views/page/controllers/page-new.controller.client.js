@@ -21,8 +21,11 @@
 
         function createPage(page)
         {
-            pageService.createPage(model.websiteId, page);
-            goBack();
+            var promise = pageService.createPage(model.websiteId, page);
+            promise
+                .then(function (response) {
+                    goBack();
+                });
         }
 
         function goBack()

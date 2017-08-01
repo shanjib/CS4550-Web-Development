@@ -18,20 +18,30 @@
 
         function init()
         {
-            model.page = pageService.findPageById(model.pageId);
+            var promise = pageService.findPageById(model.pageId);
+            promise
+                .then(function (response) {
+                    model.page = response.data;
+                });
         }
         init();
 
         function updatePage(page)
         {
-            pageService.updatePage(model.pageId, page);
-            goBack();
+            var promise = pageService.updatePage(model.pageId, page);
+            promise
+                .then(function (response) {
+                    goBack();
+                });
         }
 
         function deletePage()
         {
-            pageService.deletePage(model.pageId);
-            goBack();
+            var promise = pageService.deletePage(model.pageId);
+            promise
+                .then(function (response) {
+                    goBack();
+                });
         }
 
         function goBack()
