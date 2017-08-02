@@ -19,13 +19,11 @@
 
         function init()
         {
-            var promise = websiteService.findWebsitesByUser(model.userId);
-            promise
+            websiteService.findWebsitesByUser(model.userId)
                 .then(function (response) {
                     model.websites = response.data;
                 });
-            var promise2 = websiteService.findWebsiteById(model.websiteId);
-            promise2
+            websiteService.findWebsiteById(model.websiteId)
                 .then(function (response) {
                     model.website = response.data;
                 });
@@ -39,8 +37,7 @@
 
         function deleteWebsite()
         {
-            var promise = websiteService.deleteWebsite(model.websiteId);
-            promise
+            websiteService.deleteWebsite(model.websiteId)
                 .then(function (response) {
                     goBack();
                 });
@@ -48,8 +45,7 @@
 
         function updateWebsite(website)
         {
-            var promise = websiteService.updateWebsite(model.websiteId, website);
-            promise
+            websiteService.updateWebsite(model.websiteId, website)
                 .then(function (response) {
                     goBack();
                 });

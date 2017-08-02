@@ -18,8 +18,7 @@
 
         function init()
         {
-            var promise = pageService.findPageById(model.pageId);
-            promise
+            pageService.findPageById(model.pageId)
                 .then(function (response) {
                     model.page = response.data;
                 });
@@ -28,8 +27,7 @@
 
         function updatePage(page)
         {
-            var promise = pageService.updatePage(model.pageId, page);
-            promise
+            pageService.updatePage(model.pageId, page)
                 .then(function (response) {
                     goBack();
                 });
@@ -37,8 +35,7 @@
 
         function deletePage()
         {
-            var promise = pageService.deletePage(model.pageId);
-            promise
+            pageService.deletePage(model.pageId)
                 .then(function (response) {
                     goBack();
                 });

@@ -21,8 +21,7 @@
 
         function createPage(page)
         {
-            var promise = pageService.createPage(model.websiteId, page);
-            promise
+            pageService.createPage(model.websiteId, page)
                 .then(function (response) {
                     goBack();
                 });

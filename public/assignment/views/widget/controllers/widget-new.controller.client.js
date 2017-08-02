@@ -61,8 +61,7 @@
 
         function createWidget(widget)
         {
-            var promise = widgetService.createWidget(model.pageId, widget);
-            promise
+            widgetService.createWidget(model.pageId, widget)
                 .then(function (response) {
                     widget = response.data;
                     goToEdit(widget._id);

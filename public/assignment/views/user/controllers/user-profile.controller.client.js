@@ -15,8 +15,7 @@
 
         function init()
         {
-            var promise = userService.findUserById(userId);
-            promise
+            userService.findUserById(userId)
                 .then(function (response) {
                     model.user = response.data;
                 });
@@ -25,13 +24,12 @@
 
         function updateUser(user)
         {
-            var promise = userService.updateUser(userId, user);
+            userService.updateUser(userId, user);
         }
 
         function deleteUser()
         {
-            var promise = userService.deleteUser(userId);
-            promise
+            userService.deleteUser(userId)
                 .then(function (response) {
                     goBack();
                 });

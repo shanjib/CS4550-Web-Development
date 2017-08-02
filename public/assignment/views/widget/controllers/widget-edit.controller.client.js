@@ -19,8 +19,7 @@
 
         function init()
         {
-            var promise = widgetService.findWidgetById(model.widgetId);
-            promise
+            widgetService.findWidgetById(model.widgetId)
                 .then(function (response) {
                     model.widget = response.data;
                 });
@@ -29,8 +28,7 @@
 
         function updateWidget(widget)
         {
-            var promise = widgetService.updateWidget(model.widgetId, widget);
-            promise
+            widgetService.updateWidget(model.widgetId, widget)
                 .then(function (response) {
                     goBack();
                 });
@@ -38,8 +36,7 @@
 
         function deleteWidget()
         {
-            var promise = widgetService.deleteWidget(model.widgetId);
-            promise
+            widgetService.deleteWidget(model.widgetId)
                 .then(function (response) {
                     goBack();
                 });

@@ -20,8 +20,7 @@
 
         function init()
         {
-            var promise = widgetService.findWidgetsByPageId(model.pageId);
-            promise
+            widgetService.findWidgetsByPageId(model.pageId)
                 .then(function (response) {
                     model.widgets = response.data;
                 });

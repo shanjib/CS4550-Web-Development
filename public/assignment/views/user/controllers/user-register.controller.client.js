@@ -18,23 +18,21 @@
 
         function registerUser(user)
         {
-            var promise = userService.findUserByUsername(user.username);
-            promise
+            userService.findUserByUsername(user.username)
                 .then(function (response) {
                     var _user = response.data;
                     if (_user === "0")
                     {
-                        var promise2 = userService.createUser(user);
-                        promise2
-                            .then(function (response) {
-                                _user = response.data;
-                                $location.url("/profile/" + _user._id);
-                            });
+                        return userService.createUser(user);
                     }
                     else
                     {
                         model.errorMessage = "Username Taken";
                     }
+                })
+                .then(function (response) {
+                    _user = response.data;
+                    $location.url("/profile/" + _user._id);
                 });
         }
 

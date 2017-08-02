@@ -21,8 +21,7 @@
             {
                 model.errorMessage = "Username or Password given was not accurate"
             }
-            var promise = userService.findUserByCredentials(user.username, user.password);
-            promise
+            userService.findUserByCredentials(user.username, user.password)
                 .then(function (response)
                 {
                     user = response.data;

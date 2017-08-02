@@ -17,8 +17,7 @@
 
         function init()
         {
-            var promise = websiteService.findWebsitesByUser(model.userId);
-            promise
+            websiteService.findWebsitesByUser(model.userId)
                 .then(function (response) {
                     model.websites = response.data;
                 });
@@ -27,8 +26,7 @@
 
         function createWebsite(website)
         {
-            var promise = websiteService.createWebsite(model.userId, website);
-            promise
+            websiteService.createWebsite(model.userId, website)
                 .then(function (response) {
                     goBack();
                 });

@@ -17,8 +17,7 @@
 
         function init()
         {
-            var promise = websiteService.findWebsitesByUser(model.userId);
-            promise
+            websiteService.findWebsitesByUser(model.userId)
                 .then(function (response) {
                     model.websites = response.data;
                 });
