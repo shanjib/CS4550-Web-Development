@@ -6,10 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <title>Assignment</title>
 
+    <link href="../vendor/css/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <script src="../vendor/jquery/jquery.js"></script>
+    <script src="../vendor/jquery/jquery-ui.js"></script>
+    <link href="../vendor/jquery/jquery-ui.css" rel="stylesheet"/>
+
     <script src="../vendor/angular/angular.js"></script>
     <script src="../vendor/angular/angular-route.js"></script>
+
+    <script src="directives/wbdv-sortable.js"></script>
+
     <script src="app.js"></script>
     <script src="config.js"></script>
+    <link href="css/styles.css" rel="stylesheet"/>
 
     <script src="views/user/controllers/user-login.controller.client.js"></script>
     <script src="views/user/controllers/user-profile.controller.client.js"></script>
@@ -32,14 +42,10 @@
     <script src="services/website.service.client.js"></script>
     <script src="services/widget.service.client.js"></script>
 
-    <link href="../vendor/css/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="css/styles.css" rel="stylesheet"/>
-
 </head>
 <body>
 
 <div ng-view>
-
 </div>
 
 </body>

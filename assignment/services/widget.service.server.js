@@ -16,6 +16,7 @@ var widgets =
         { "_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>"}
     ];
 
+app.put("/api/page/:pageId/widget", sortWidget);
 app.post("/api/upload", upload.single('myFile'), uploadImage);
 app.post("/api/page/:pageId/widget", createWidget);
 app.get("/api/page/:pageId/widget", findWidgetsByPageId);
@@ -23,7 +24,17 @@ app.get("/api/widget/:widgetId", findWidgetById);
 app.put("/api/widget/:widgetId", updateWidget);
 app.delete("/api/widget/:widgetId", deleteWidget);
 
-function uploadImage(req, res, $http)
+function sortWidget(req, res)
+{
+    var initial = req.query.initial;
+    var final = req.query.final;
+    var temp = widgets[initial];
+    widgets[initial] = widgets[final];
+    widgets[final] = temp;
+    res.sendStatus(200);
+}
+
+function uploadImage(req, res)
 {
     var widgetId = req.body.widgetId;
     var width = req.body.width;
