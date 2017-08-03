@@ -26,8 +26,29 @@ app.delete("/api/widget/:widgetId", deleteWidget);
 
 function sortWidget(req, res)
 {
+    var pageId = req.params.pageId;
     var initial = req.query.initial;
     var final = req.query.final;
+
+    var start = -1;
+    var end = -1;
+    for (var w in widgets)
+    {
+        if (widgets[w].pageId === pageId)
+        {
+            start++;
+            end++;
+            if (start == initial)
+            {
+                initial = w;
+            }
+            if (end == final)
+            {
+                final = w;
+            }
+        }
+    }
+
     var temp = widgets[initial];
     widgets[initial] = widgets[final];
     widgets[final] = temp;
