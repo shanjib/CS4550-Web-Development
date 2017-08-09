@@ -19,7 +19,7 @@
                 <div class="row">
                     <div class="col-xs-4">Name</div>
                     <div class="col-xs-6 col-sm-3">Description</div>
-                    <div class="col-sm-3 hidden-xs">Updated</div>
+                    <div class="col-sm-3 hidden-xs">Created</div>
                     <div class="col-xs-2">
                         <a style="color:white">
                             <span ng-click="model.goToNew()" class="pull-right glyphicon glyphicon-plus"></span>
@@ -32,7 +32,7 @@
                     <a ng-click="model.goToPage(website._id)" style="color:black">
                         <div class="col-xs-4">{{website.name}}</div>
                         <div class="col-xs-6 col-sm-3">{{website.description}}</div>
-                        <div class="col-sm-3 hidden-xs">2017-07-05</div>
+                        <div class="col-sm-3 hidden-xs">{{website.dateCreated | date : 'medium'}}</div>
                         <div class="col-xs-2">
                             <a style="color:black">
                                 <span ng-click="model.goToEdit(website._id)" class="glyphicon glyphicon-cog pull-right"></span>

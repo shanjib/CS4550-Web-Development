@@ -40,9 +40,9 @@
             return $http.put(url, widget);
         }
 
-        function deleteWidget(widgetId)
+        function deleteWidget(pageId, widgetId)
         {
-            var url = "/api/widget/" + widgetId;
+            var url = "/api/page/" + pageId + "/widget/" + widgetId;
             return $http.delete(url);
         }
     }

@@ -12,10 +12,15 @@
         model.websiteId = $routeParams.wid;
 
         model.createPage = createPage;
+        model.goToEdit = goToEdit;
         model.goBack = goBack;
 
         function init()
         {
+            pageService.findPagesByWebsiteId(model.websiteId)
+                .then(function (response) {
+                    model.pages = response.data;
+                });
         }
         init();
 
@@ -25,6 +30,11 @@
                 .then(function (response) {
                     goBack();
                 });
+        }
+
+        function goToEdit(pageId)
+        {
+            $location.url("/profile/" + model.userId + "/website/" + model.websiteId + "/page/" + pageId);
         }
 
         function goBack()

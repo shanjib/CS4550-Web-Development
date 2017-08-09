@@ -18,30 +18,58 @@
     </div>
 </nav>
 
-<div class="container container-fluid">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-3 visible-lg ias-split-view-left">
+            <ul class="list-group">
+                <li class="list-group-item ias-inverse">
+                    <div class="row">
+                        <div class="col-xs-10">Name</div>
+                        <div class="col-xs-2">
+                            <a style="color:white">
+                                <span ng-click="model.goToNew()" class="pull-right glyphicon glyphicon-plus"></span>
+                            </a>
+                        </div>
+                    </div>
+                </li>
 
-    <label for="name">Name</label>
-    <input name="name"
-           placeholder="Page Name"
-           ng-model="page.name"
-           class="form-control"
-           id="name"/>
+                <li ng-repeat="page in model.pages" class="list-group-item">
+                    <div class="row">
+                        <div class="col-xs-10">{{page.name}}</div>
+                        <div class="col-xs-2">
+                            <a style="color:black">
+                                <span ng-click="model.goToEdit(page._id)" class="glyphicon glyphicon-cog pull-right"></span>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
 
-    <label for="title">Description</label>
-    <input name="title"
-           placeholder="Page Description"
-           ng-model="page.description"
-           class="form-control"
-           id="title"/>
+        <div class="col-xs-12 col-lg-9 ias-split-view-right">
+            <label for="name">Name</label>
+            <input name="name"
+                   placeholder="Page Name"
+                   ng-model="page.name"
+                   class="form-control"
+                   id="name"/>
 
-    <a class="btn btn-default btn-primary btn-block"
-       ng-click="model.createPage(page)"
-       role="button">Confirm</a>
+            <label for="title">Description</label>
+            <input name="title"
+                   placeholder="Page Description"
+                   ng-model="page.description"
+                   class="form-control"
+                   id="title"/>
 
-    <a class="btn btn-default btn-danger btn-block"
-       ng-click="model.goBack()"
-       role="button">Cancel</a>
+            <a class="btn btn-default btn-primary btn-block"
+               ng-click="model.createPage(page)"
+               role="button">Confirm</a>
 
+            <a class="btn btn-default btn-danger btn-block"
+               ng-click="model.goBack()"
+               role="button">Cancel</a>
+        </div>
+    </div>
 </div>
 
 <footer class="footer panel-footer ias-footer">

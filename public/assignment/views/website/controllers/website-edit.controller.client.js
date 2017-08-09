@@ -37,7 +37,7 @@
 
         function deleteWebsite()
         {
-            websiteService.deleteWebsite(model.websiteId)
+            websiteService.deleteWebsite(model.userId, model.websiteId)
                 .then(function (response) {
                     goBack();
                 });

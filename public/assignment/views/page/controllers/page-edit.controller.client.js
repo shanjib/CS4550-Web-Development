@@ -14,10 +14,15 @@
 
         model.updatePage = updatePage;
         model.deletePage = deletePage;
+        model.goToEdit = goToEdit;
         model.goBack = goBack;
 
         function init()
         {
+            pageService.findPagesByWebsiteId(model.websiteId)
+                .then(function (response) {
+                    model.pages = response.data;
+                });
             pageService.findPageById(model.pageId)
                 .then(function (response) {
                     model.page = response.data;
@@ -35,10 +40,15 @@
 
         function deletePage()
         {
-            pageService.deletePage(model.pageId)
+            pageService.deletePage(model.websiteId, model.pageId)
                 .then(function (response) {
                     goBack();
                 });
+        }
+
+        function goToEdit(pageId)
+        {
+            $location.url("/profile/" + model.userId + "/website/" + model.websiteId + "/page/" + pageId);
         }
 
         function goBack()

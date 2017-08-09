@@ -19,7 +19,8 @@
 
         function init()
         {
-            widgetService.findWidgetById(model.widgetId)
+            widgetService
+                .findWidgetById(model.widgetId)
                 .then(function (response) {
                     model.widget = response.data;
                 });
@@ -28,7 +29,8 @@
 
         function updateWidget(widget)
         {
-            widgetService.updateWidget(model.widgetId, widget)
+            widgetService
+                .updateWidget(model.widgetId, widget)
                 .then(function (response) {
                     goBack();
                 });
@@ -36,7 +38,8 @@
 
         function deleteWidget()
         {
-            widgetService.deleteWidget(model.widgetId)
+            widgetService
+                .deleteWidget(model.pageId, model.widgetId)
                 .then(function (response) {
                     goBack();
                 });
@@ -44,7 +47,8 @@
 
         function goBack()
         {
-            $location.url("/profile/" + model.userId + "/website/" + model.websiteId + "/page/" + model.pageId + "/widget");
+            $location
+                .url("/profile/" + model.userId + "/website/" + model.websiteId + "/page/" + model.pageId + "/widget");
         }
     }
 })();

@@ -26,9 +26,15 @@
 
         function createWebsite(website)
         {
+            if (!website)
+            {
+                model.errorMessage = "Website not valid"
+            }
             websiteService.createWebsite(model.userId, website)
                 .then(function (response) {
                     goBack();
+                }, function (err) {
+                    model.errorMessage = "Website not valid"
                 });
         }
 

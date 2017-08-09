@@ -32,6 +32,22 @@
            readonly
            value="Goku"/>
 
+    <label for="email">Email</label>
+    <input name="email"
+           id="email"
+           type="email"
+           ng-model="model.user.email"
+           class="form-control"
+           placeholder="goku@son.com"/>
+
+    <label for="phone">Phone</label>
+    <input name="phone"
+           id="phone"
+           type="tel"
+           ng-model="model.user.phone"
+           class="form-control"
+           placeholder="123 456 7890"/>
+
     <a class="btn btn-default btn-block btn-primary"
        href="#!/profile/{{model.user._id}}/website"
        role="button">Websites</a>

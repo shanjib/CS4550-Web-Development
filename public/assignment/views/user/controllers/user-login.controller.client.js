@@ -25,7 +25,7 @@
                 .then(function (response)
                 {
                     user = response.data;
-                    if (user === "0")
+                    if (user === null)
                     {
                         model.errorMessage = "Username or Password given was not accurate"
                     }
