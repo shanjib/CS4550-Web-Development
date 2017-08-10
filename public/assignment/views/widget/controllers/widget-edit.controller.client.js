@@ -13,9 +13,10 @@
         model.pageId = $routeParams.pid;
         model.widgetId = $routeParams.wgid;
 
-        model.goBack = goBack;
         model.updateWidget = updateWidget;
         model.deleteWidget = deleteWidget;
+        model.goToSearch = goToSearch;
+        model.goBack = goBack;
 
         function init()
         {
@@ -43,6 +44,12 @@
                 .then(function (response) {
                     goBack();
                 });
+        }
+
+        function goToSearch()
+        {
+            $location
+                .url("/profile/" + model.userId + "/website/" + model.websiteId + "/page/" + model.pageId + "/widget/" + model.widgetId + "/search");
         }
 
         function goBack()

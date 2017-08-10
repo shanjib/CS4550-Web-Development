@@ -2,7 +2,7 @@
 {
     angular
         .module("WamApp")
-        .config(configuration)
+        .config(configuration);
 
     function configuration ($routeProvider)
     {
@@ -70,6 +70,11 @@
             .when("/profile/:uId/website/:wid/page/:pid/widget/:wgid", {
                 templateUrl: "views/widget/templates/widget-edit.view.client.html",
                 controller: "widgetEditController",
+                controllerAs: "model"
+            })
+            .when("/profile/:uId/website/:wid/page/:pid/widget/:wgid/search", {
+                templateUrl: "views/widget/editors/widget-flickr-edit.view.client.html",
+                controller: "flickrController",
                 controllerAs: "model"
             })
     }

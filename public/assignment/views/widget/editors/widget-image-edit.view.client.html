@@ -16,6 +16,10 @@
        type="text"
        id="width"/>
 
+<a class="btn btn-default btn-info btn-block"
+   ng-click="model.goToSearch()"
+   role="button">Search</a>
+
 <label>Upload</label>
 <form action="/api/upload"   method="post" enctype="multipart/form-data">
     <input  name="myFile"    type="file" class="form-control"/>
