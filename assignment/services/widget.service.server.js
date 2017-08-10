@@ -59,15 +59,15 @@ function uploadImage(req, res)
             _widget.url = "/uploads/" + filename;
             _widget.size = size;
             _widget.width = width;
+            return widgetModel.updateWidget(widgetId, _widget);
         }, function (err) {
             res.sendStatus(400).send(err);
         })
-        .updateWidget(widgetId, _widget)
         .then(function (status) {
             var callbackUrl   = "/assignment/#!/profile/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget";
-            res.send(status).redirect(callbackUrl);
+            res.redirect(callbackUrl);
         }, function (err) {
-            res.sendStatus(400).send(err);
+            res.sendStatus(505).send(err);
         });
 
 }

@@ -19,6 +19,7 @@
         model.goToImage = goToImage;
         model.goToYoutube = goToYoutube;
         model.goToHTML = goToHTML;
+        model.goToText = goToText;
 
         function init()
         {
@@ -56,6 +57,11 @@
         function goToHTML()
         {
             var widget = { "widgetType": "HTML", "text": "" };
+            createWidget(widget);
+        }
+
+        function goToText() {
+            var widget = { "widgetType": "TEXT", "text": "" };
             createWidget(widget);
         }
 

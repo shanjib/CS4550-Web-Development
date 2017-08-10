@@ -5,7 +5,7 @@ var widgetSchema = Schema(
     {
         _page: {type: Schema.Types.ObjectId, ref: "PageModel"},
         index: Number,
-        widgetType: {type: String, enum: ['HEADING', 'IMAGE', 'YOUTUBE', 'HTML']},
+        widgetType: {type: String, enum: ['HEADING', 'IMAGE', 'YOUTUBE', 'HTML', 'TEXT']},
         name: String,
         text: String,
         placeholder: String,
