@@ -1,0 +1,103 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container container-fluid">
+        <div>
+            <div class="navbar-brand navbar-left" style="color: white">
+                Profile
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container container-fluid">
+
+    <label for="firstName">First Name</label>
+    <input name="firstName"
+           id="firstName"
+           ng-model="model.user.firstName"
+           class="form-control"
+           placeholder="Goku"/>
+
+    <label for="lastName">Last Name</label>
+    <input name="lastName"
+           id="lastName"
+           ng-model="model.user.lastName"
+           class="form-control"
+           placeholder="Son"/>
+
+    <label for="username">Username</label>
+    <input name="username"
+           id="username"
+           ng-model="model.user.username"
+           class="form-control"
+           readonly
+           value="Goku"/>
+
+    <label for="email">Email</label>
+    <input name="email"
+           id="email"
+           type="email"
+           ng-model="model.user.email"
+           class="form-control"
+           placeholder="goku@son.com"/>
+
+    <label for="phone">Phone</label>
+    <input name="phone"
+           id="phone"
+           type="tel"
+           ng-model="model.user.phone"
+           class="form-control"
+           placeholder="123 456 7890"/>
+
+    <label for="role">Change Role</label>
+    <div class="radio"
+         id="role">
+        <label>
+            <input type="radio"
+                   name="role"
+                   ng-model="user.role"
+                   value="Regular">
+            Regular
+        </label>
+        <br>
+        <label>
+            <input type="radio"
+                   name="role"
+                   ng-model="user.role"
+                   value="Trainer">
+            Trainer
+        </label>
+        <br>
+        <label>
+            <input type="radio"
+                   name="role"
+                   ng-model="user.role"
+                   value="Leader">
+            Leader
+        </label>
+    </div>
+
+    <a class="btn btn-default btn-block btn-primary"
+       href="#!/profile/{{model.user._id}}/workout"
+       role="button">Workouts</a>
+
+    <a class="btn btn-default btn-block btn-primary"
+       ng-click="model.updateUser(model.user)"
+       role="button">Update Profile</a>
+
+    <a class="btn btn-default btn-block btn-danger"
+       ng-click="model.deleteUser()"
+       role="button">Delete Profile</a>
+
+    <a class="btn btn-default btn-block btn-danger"
+       ng-click="model.goBack()"
+       role="button">Logout</a>
+
+</div>
+
+<footer class="footer panel-footer ias-footer">
+    <div class="container container-fluid">
+        <ul class="list-unstyled">
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span></a></li>
+        </ul>
+    </div>
+</footer>

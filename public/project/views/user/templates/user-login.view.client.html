@@ -1,0 +1,48 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container container-fluid">
+        <div>
+            <div class="navbar-brand navbar-left" style="color: white">
+                Login
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container container-fluid">
+    <div>
+
+        <div ng-show="model.errorMessage" class="alert alert-danger">
+            {{model.errorMessage}}
+        </div>
+
+        <label for="username">Username</label>
+        <input name="username"
+               id="username"
+               ng-model="model.user.username"
+               class="form-control"
+               placeholder="Goku"/>
+
+        <label for="password">Password</label>
+        <input name="password"
+               id="password"
+               ng-model="model.user.password"
+               type="password"
+               class="form-control"
+               placeholder="draGonB4llZ"
+               value="submit"/>
+
+        <a class="btn btn-default btn-block btn-primary"
+           ng-click="model.login(model.user)"
+           role="button">Login</a>
+
+        <a class="btn btn-default btn-block btn-primary"
+           href="#!/register"
+           role="button">Register</a>
+
+    </div>
+</div>
+
+<footer class="footer panel-footer ias-footer">
+    <div class="container container-fluid">
+    </div>
+</footer>

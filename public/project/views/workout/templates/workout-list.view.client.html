@@ -1,0 +1,54 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container container-fluid">
+        <div>
+            <div class="navbar-brand navbar-left" style="color: white">
+                <a>
+                    <span ng-click="model.goBack()" class="glyphicon glyphicon-chevron-left">
+                    </span>
+                </a>
+                Workouts
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container container-fluid">
+    <div class="ias-view">
+        <ul class="list-group">
+            <li class="list-group-item ias-inverse">
+                <div class="row">
+                    <div class="col-xs-4">Name</div>
+                    <div class="col-xs-6 col-sm-3">Description</div>
+                    <div class="col-sm-3 hidden-xs">Created</div>
+                    <div class="col-xs-2">
+                        <a style="color:white">
+                            <span ng-click="model.goToNew()" class="pull-right glyphicon glyphicon-plus"></span>
+                        </a>
+                    </div>
+                </div>
+            </li>
+            <li ng-repeat="workout in model.workouts" class="list-group-item">
+                <div class="row">
+                    <a ng-click="model.goToExercises(workout._id)" style="color:black">
+                        <div class="col-xs-4">{{workout.name}}</div>
+                        <div class="col-xs-6 col-sm-3">{{workout.description}}</div>
+                        <div class="col-sm-3 hidden-xs">{{workout.dateCreated | date : 'medium'}}</div>
+                        <div class="col-xs-2">
+                            <a style="color:black">
+                                <span ng-click="model.goToEdit(workout._id)" class="glyphicon glyphicon-cog pull-right"></span>
+                            </a>
+                        </div>
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<footer class="footer panel-footer ias-footer">
+    <div class="container container-fluid">
+        <ul class="list-unstyled">
+            <li><a href="#!/profile/{{model.userId}}"><span class="glyphicon glyphicon-user"></span></a></li>
+        </ul>
+    </div>
+</footer>

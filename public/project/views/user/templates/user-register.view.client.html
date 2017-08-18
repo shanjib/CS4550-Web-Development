@@ -1,0 +1,81 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container container-fluid">
+        <div>
+            <div class="navbar-brand navbar-left" style="color: white">
+                Register
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container container-fluid">
+
+    <div ng-show="model.errorMessage" class="alert alert-danger">
+        {{model.errorMessage}}
+    </div>
+
+    <label for="username">Username</label>
+    <input name="username"
+           id="username"
+           ng-model="user.username"
+           class="form-control"
+           placeholder="Goku"/>
+
+    <label for="password">Password</label>
+    <input name="password"
+           id="password"
+           ng-model="user.password"
+           class="form-control"
+           type="password"
+           placeholder="draGonB4llZ"/>
+
+    <label for="password2">Verify Password</label>
+    <input name="password2"
+           id="password2"
+           ng-model="user.password2"
+           class="form-control"
+           type="password"
+           placeholder="draGonB4llZ"/>
+
+    <label for="role">Select a Role</label>
+    <div class="radio"
+         id="role">
+        <label>
+            <input type="radio"
+                   name="role"
+                   ng-model="user.role"
+                   value="Regular">
+            Regular
+        </label>
+        <br>
+        <label>
+            <input type="radio"
+                   name="role"
+                   ng-model="user.role"
+                   value="Trainer">
+            Trainer
+        </label>
+        <br>
+        <label>
+            <input type="radio"
+                   name="role"
+                   ng-model="user.role"
+                   value="Leader">
+            Leader
+        </label>
+    </div>
+
+    <a class="btn btn-default btn-block btn-primary"
+       ng-click="model.registerUser(user)"
+       role="button">Register</a>
+
+    <a class="btn btn-default btn-block btn-danger"
+       ng-click="model.cancel()"
+       role="button">Cancel</a>
+
+</div>
+
+<footer class="footer panel-footer ias-footer">
+    <div class="container container-fluid">
+    </div>
+</footer>

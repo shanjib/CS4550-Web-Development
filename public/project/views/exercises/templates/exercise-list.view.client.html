@@ -1,0 +1,74 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container container-fluid">
+        <div>
+            <div class="navbar-brand navbar-left" style="color: white">
+                <a>
+                    <span ng-click="model.goBack()" class="glyphicon glyphicon-chevron-left">
+                    </span>
+                </a>
+                Exercises
+            </div>
+            <div class="navbar-brand navbar-right pull-right">
+                <a>
+                    <span ng-click="model.goToNew()"
+                          class="glyphicon glyphicon-plus ias-glyphicon">
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container container-fluid">
+    <ul id="asortable" widget-list>
+        <div ng-repeat="widget in model.widgets">
+            <div ng-switch="widget.widgetType">
+                <div ng-switch-when="HEADING">
+                    <ng-include src="'/assignment/views/widget/views/widget-heading.view.client.html'">
+                </div>
+                <div ng-switch-when="IMAGE">
+                    <ng-include src="'/assignment/views/widget/views/widget-image.view.client.html'">
+                </div>
+                <div ng-switch-when="YOUTUBE">
+                    <ng-include src="'/assignment/views/widget/views/widget-youtube.view.client.html'">
+                </div>
+                <div ng-switch-when="HTML">
+                    <ng-include src="'/assignment/views/widget/views/widget-html.view.client.html'">
+                </div>
+                <div ng-switch-when="TEXT">
+                    <ng-include src="'/assignment/views/widget/views/widget-text.view.client.html'">
+                </div>
+            </div>
+        </div>
+    </ul>
+
+    <ul id="sortable" class="list-group">
+        <li class="list-group-item ias-inverse">
+            <div class="row">
+                <div class="col-xs-3">Name</div>
+                <div class="col-xs-8">Description</div>
+                <div class="col-xs-1"></div>
+            </div>
+        </li>
+        <li ng-repeat="exercise in model.exercises" class="list-group-item">
+            <div class="row">
+                <div class="col-xs-3">{{exercise.name}}</div>
+                <div class="col-xs-8" ng-bind-html="model.trustHTMLContent(exercise.description)"></div>
+                <div class="col-xs-1">
+                    <a style="color:black"
+                       ng-click="model.removeExercise(exercise._id)">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </a>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<footer class="footer panel-footer ias-footer">
+    <div class="container container-fluid">
+        <ul class="list-unstyled">
+            <li><a href="#!/profile/{{model.userId}}"><span class="glyphicon glyphicon-user"></span></a></li>
+        </ul>
+    </div>
+</footer>
