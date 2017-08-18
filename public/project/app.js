@@ -1,5 +1,5 @@
 (function()
 {
     angular
-        .module("WorkApp", ['ngRoute', 'textAngular', 'wbdvDirectives']);
+        .module("WorkApp", ['ngRoute', 'textAngular']);
 })();
