@@ -4,7 +4,7 @@
         .module("WorkApp")
         .controller("exerciseListController", exerciseListController);
 
-    function exerciseListController($routeParams, $location, $sce, exerciseService)
+    function exerciseListController($routeParams, $location, $sce, exerciseService, workUserService)
     {
         var model = this;
 
@@ -22,6 +22,14 @@
                 .findExercisesByWorkoutId(model.workoutId)
                 .then(function (response) {
                     model.exercises = response.data;
+                });
+            workUserService
+                .findUserById(model.userId)
+                .then(function (response) {
+                    var role = response.data.role;
+                    model.regular = role === "Regular";
+                    model.trainer = role === "Trainer";
+                    model.leader = role === "Leader";
                 });
         }
         init();

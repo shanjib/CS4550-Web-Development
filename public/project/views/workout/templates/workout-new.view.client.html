@@ -22,9 +22,8 @@
 
 
 <div class="container-fluid">
-    <div class="row">
+    <div ng-if="model.trainer || model.leader">
         <div class="col-xs-3 visible-lg ias-split-view-left">
-
             <ul class="list-group">
                 <li class="list-group-item ias-inverse">
                     <div class="row">
@@ -75,6 +74,28 @@
                ng-click="model.goBack()"
                role="button">Cancel</a>
         </div>
+    </div>
+
+    <div ng-if="model.regular" class="container">
+        <ul class="list-group">
+            <li class="list-group-item ias-inverse">
+                <div class="row">
+                    <div class="col-xs-10">Choose Existing</div>
+                    <div class="col-xs-2"></div>
+                </div>
+            </li>
+
+            <li ng-repeat="workout in model.workouts" class="list-group-item">
+                <div class="row">
+                    <div class="col-xs-10">{{workout.name}}</div>
+                    <div class="col-xs-2">
+                        <a style="color:black">
+                            <span ng-click="model.addWorkout(workout._id)" class="glyphicon glyphicon-ok pull-right"></span>
+                        </a>
+                    </div>
+                </div>
+            </li>
+        </ul>
     </div>
 </div>
 

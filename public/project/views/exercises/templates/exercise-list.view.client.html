@@ -8,7 +8,7 @@
                 </a>
                 Exercises
             </div>
-            <div class="navbar-brand navbar-right pull-right">
+            <div class="navbar-brand navbar-right pull-right" ng-if="model.trainer || model.leader">
                 <a>
                     <span ng-click="model.goToNew()"
                           class="glyphicon glyphicon-plus ias-glyphicon">
@@ -20,28 +20,6 @@
 </nav>
 
 <div class="container container-fluid">
-    <ul id="asortable" widget-list>
-        <div ng-repeat="widget in model.widgets">
-            <div ng-switch="widget.widgetType">
-                <div ng-switch-when="HEADING">
-                    <ng-include src="'/assignment/views/widget/views/widget-heading.view.client.html'">
-                </div>
-                <div ng-switch-when="IMAGE">
-                    <ng-include src="'/assignment/views/widget/views/widget-image.view.client.html'">
-                </div>
-                <div ng-switch-when="YOUTUBE">
-                    <ng-include src="'/assignment/views/widget/views/widget-youtube.view.client.html'">
-                </div>
-                <div ng-switch-when="HTML">
-                    <ng-include src="'/assignment/views/widget/views/widget-html.view.client.html'">
-                </div>
-                <div ng-switch-when="TEXT">
-                    <ng-include src="'/assignment/views/widget/views/widget-text.view.client.html'">
-                </div>
-            </div>
-        </div>
-    </ul>
-
     <ul id="sortable" class="list-group">
         <li class="list-group-item ias-inverse">
             <div class="row">
@@ -54,7 +32,7 @@
             <div class="row">
                 <div class="col-xs-3">{{exercise.name}}</div>
                 <div class="col-xs-8" ng-bind-html="model.trustHTMLContent(exercise.description)"></div>
-                <div class="col-xs-1">
+                <div class="col-xs-1" ng-if="model.trainer || model.leader">
                     <a style="color:black"
                        ng-click="model.removeExercise(exercise._id)">
                         <span class="glyphicon glyphicon-remove"></span>
